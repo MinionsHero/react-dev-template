@@ -1,0 +1,39 @@
+{
+  "cacheDirectory": true,
+  "presets": [
+    [
+      "@babel/preset-env",
+      {
+        "targets": {
+          "browsers": [
+            "> 1%",
+            "last 2 versions",
+            "not ie <= 8"
+          ]
+        },
+        "useBuiltIns": "usage",
+        "corejs": "2"
+      }
+    ],
+    [
+      "@babel/preset-react"
+    ]
+  ],
+  "plugins": [
+    [
+      "@babel/plugin-proposal-object-rest-spread"
+    ],
+    [
+      "@babel/plugin-transform-arrow-functions"
+    ],
+    [
+      "@babel/plugin-transform-react-display-name"
+    ],
+    [
+      "@babel/plugin-transform-runtime"
+    ],
+    [
+      "react-hot-loader/babel"
+    ]
+  ]
+}
