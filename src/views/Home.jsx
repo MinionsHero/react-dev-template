@@ -1,8 +1,14 @@
-import React from 'react'
-import HelloWorld from '@components/HelloWorld'
+import React from 'react';
+import HelloWorld from '@components/HelloWorld';
+import '@styles/Home.scss';
 
 export default function Home() {
   return (
-    <HelloWorld />
-  )
+    <div className="home">
+      <div>Hello React!</div>
+      <div>
+        <HelloWorld />
+      </div>
+    </div>
+  );
 }

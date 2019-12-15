@@ -21,9 +21,18 @@ module.exports = {
   devtool: 'inline-source-map',
   resolve: {
     alias: {
-      '@component': path.resolve(srcPath, './components'),
-      '@views': path.resolve(__dirname, './views'),
-      '@pages': path.resolve(__dirname, './pages'),
+      '@components': path.resolve(srcPath, './components/'),
+      '@views': path.resolve(srcPath, './views/'),
+      '@assets': path.resolve(srcPath, './assets/'),
+      '@images': path.resolve(srcPath, './assets/images/'),
+      '@styles': path.resolve(srcPath, './assets/styles/'),
+      '@fonts': path.resolve(srcPath, './assets/fonts/'),
+      '@jsons': path.resolve(srcPath, './assets/jsons/'),
+      '@store': path.resolve(srcPath, './store/'),
+      '@routes': path.resolve(srcPath, './routes/'),
+      '@utils': path.resolve(srcPath, './utils/'),
+      '@layouts': path.resolve(srcPath, './layouts/'),
+      '@': srcPath
     },
     extensions: ['.wasm', '.mjs', '.js', '.json', '.jsx']
   },
@@ -69,6 +78,28 @@ module.exports = {
             name: '[name].[hash].[ext]',
           }
         },
+      },
+      {
+        test: /\.svg$/,
+        include: [
+          path.resolve(srcPath, './assets/fonts')
+        ],
+        use: {
+          loader: 'file-loader',
+          options: {
+            publicPath: 'assets',
+            name: '[name].[hash].[ext]',
+          }
+        },
+      },
+      {
+        test: /\.svg$/,
+        include: [
+          path.resolve(srcPath, './assets/images')
+        ],
+        use: {
+          loader: 'svg-sprite-loader'
+        }
       },
       createStyleLoader(CSS),
       createStyleLoader(LESS),

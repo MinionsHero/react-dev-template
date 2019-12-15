@@ -30,8 +30,16 @@ const createLoader = function (name, config = {}) {
     use.unshift(config.afterHook(use))
   }
   // 配置loader
-  if (name === SASS) {
-    test = '(scss|sass)'
+  switch (name) {
+    case SASS:
+      test = '(scss|sass)';
+      break;
+    case STYLUS:
+      test = 'styl';
+      break;
+    default:
+      test = name;
+      break;
   }
   switch (name) {
     case LESS:
@@ -49,7 +57,6 @@ const createLoader = function (name, config = {}) {
     use: use
   }
 }
-
 module.exports.default = createLoader
 module.exports.CSS = CSS
 module.exports.SASS = SASS
