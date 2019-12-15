@@ -1,9 +1,5 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import SvgIcon from './components/SvgIcon';
-const elem = (
-  <div>
-    <SvgIcon />
-  </div>
-);
-ReactDOM.render(elem, document.getElementById('root'));
+import App from './App'
+
+ReactDOM.render(<App />, document.getElementById('root'));
